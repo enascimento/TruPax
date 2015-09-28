@@ -1,0 +1,38 @@
+
+Usage: trupax {options} [volume] [files|folders] {[files|folders] ...}
+
+Options:
+-v                   Verbose mode, show all operations in progress.
+-r                   Include all sub-directories when searching for files.
+--free-space=size    Add given amount of free space to the volume. Size is in
+                     bytes, suffixes are k(i), m(i) and g(i). For instance set
+                     size to "200m" to add 200,000,000 or set it to "100ki" to
+                     add 102,400 bytes of space.
+--store-full-path    Store full directory paths down to the root of each file
+                     system, expect the root entry (e.g. drive letters).
+--write-protect      Mark the container as write-protected.
+--label=name         Name of the volume, up to 15 characters long.
+--skip-empty-dirs    Don't add directories which are completely empty.
+--allow-merge        If name conflicts happen, due to overlapping directories
+                     or file structures, then merge the entries by replacing
+                     with the rightmost set of the directories declared.
+--case-merge         Support file and folder names in a case-sensitive fashion
+                     when it comes to potential conflicts while merging.
+--overwrite          Overwrite the volume if it already exists. Caution!
+--keep-broken-volume Keep the (potentially incomplete) volume file after an
+                     error occurred.
+--password=password  The password to use, instead of entering manually.
+--wipe               Securely erase the original files and folders after the
+                     volume has been created successfully.
+--wipe-only          Just securely erase objects, do not create a container.
+--extract            Extract the given volume to the given location.
+--invalidate         Invalidate the given volume. Use with caution!
+--for-veracrypt      Create VeraCrypt compatible containers.
+
+Examples: trupax -v -r --label=mytext test.tc mydocs\*.txt diary.txt
+          trupax --wipe -r --password=abc123 backup.tc /home/alice/
+          trupax -v --free-space=2g photolib.tc "My Pictures\2010"
+          trupax -v --extract C:\Users\jane\secure\reports.tc D:\temp
+          trupax -v --invalidate /home/bob/Pictures/party.tc
+          trupax -r --wipe-only *.tmp index.dat
+          trupax -v -r --for-veracrypt "All Documents.hc" ~/Documents

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>TruPax Documentation</title>
+  <style>
+    a:active  { color:black; }
+    a:link    { color:black; }
+    a:visited { color:black; }
+    body { font-family:Verdana,Geneva,sans-serif; color:black; background-color:white; }
+  </style>
+</head>
+
+<body>
+
+<h1>TruPax Documentation</h1>
+
+<div class="ln">&nbsp;</div>
+<h2>Configuration</h2>
+
+<div>
+TruPax saves its settings in a file named <i>trupax.properties</i> under Windows
+or as <i>.trupaxrc</i> otherwise, preferably in the location of the executable.
+If this is not possible it chooses the user's home directory (on modern
+Windows systems that's <i>C:\\Users\\{user-name}</i>). The file is managed by the
+application and should not be changed by hand.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Container Creation</h2>
+
+<h3>File Selection</h3>
+<div>
+Using the buttons <b>Add Files/Folder...</b> (or the equivalent menus) you can
+add the files of your choice to the selection. That is single files as well as
+the content of complete folders via <b>Include Subfolders</b>. The option
+<b>Store full path</b> causes the complete path structures to be preserved, or
+just the relative portion based on the selection - latter is usually the better
+choice.
+<br/><br/>
+For some or multiple selections conflicts can occur, which happen when files
+or folders with identical names show up and would be placed in an
+identical spot in the container. The drop-down menu helps to assist with such
+merge demands: <b>No merging</b> causes the registration to stop on the first
+conflict. Using <b>Merge</b> the newer selection replaces conflicting files and
+folders of former ones. Capitalization of names are ignored, meaning the file
+"image.jpg" replaces the "Image.JPG" for instance. If you don't want this to
+happen use <b>Merge Case Sensitively</b> to allow such conflicts, so "image.jpg"
+and "Image.JPG" will both be stored in the container. Though this can cause
+problems later on in Windows or OSX, where for copy and other operations file
+names are not treated in a case sensitive manner. Under Linux there are no such
+issues.  
+<br/><br/>
+Through drag and drop to the GUI one can also add folders and files
+to the selection. Except if it's a single file with the extension <i>.tc</i>, in such
+a case a dialog gets shown where you can decide whether to extract, invalidate
+or just add the container to the selection.
+<br/><br/>
+Depending on the number of files to register this process can take a while,
+yet a dialog allows you to abort the search. After registration the selection
+shows you the files in the exact way as they are going to appear in the
+container file later on.
+<br/><br/>
+Clicking on <b>Clear</b> removes the whole selection. In the box below the
+selection you will find information about the size of the container file to be,
+down to the byte.
+<br/><br/>
+To open files in the selection just double-click on them, so the associated
+application (if available) will be started.
+<br/><br/>
+You can also select the option <b>Wipe Afterwards</b>, which will cause the
+selected files and folders to be securely erased, after the container was
+created successfully. Please make sure that the container gets created in a safe
+spot - if in doubt you can always wipe the selection separately.
+</div>
+
+<h3>Container Properties</h3>
+<div>
+By using <b>Free Space</b> you can add additional storage space to the
+container. This is useful e.g. if the container will be used for further adding
+of files or any kind of related work in general. The size of this free space is
+to be declared in bytes, but you can also use short forms like "25m" for 25
+megabytes (25,000,000). Other prefixes are k (kilo) and g (giga). Folks who
+are used to one kilobyte being 1024 can also use ki/mi/gi.
+<br/><br/>
+Container can be labeled through the <b>Label</b> input, up to fifteen
+characters long. Depending on the operating system this information will then be
+visible once the volume gets mounted via VeraCrypt or TrueCrypt.
+<br/><br/>
+Using the option <b>Write-protected</b> the file system of the container will
+be marked as read-only, i.e. no changes will be possible anymore - similar to
+the behavior of a CD or DVD. However this is only supported at this time by
+Windows and OSX.
+<br/><br/>
+If you want to create containers in the format of VeraCrypt, an alternative to
+TrueCrypt, then check the option <b>For VeraCrypt</b>. Note that while TrueCrypt
+containers can be mounted by VeraCrypt it isn't the case in reverse. Because of
+the enhanced key generation the first phase while creating and extracting
+containers also takes a bit longer.
+</div>
+
+<h3>Container Selection</h3>
+<div>
+Click on the button <b>Make volume...</b>. The first thing to do is to decide
+on location and name of the container file, similar to the common "Save As..."
+in other programs. Please make sure that the target has enough disk space
+available, otherwise you might run out and the whole creation attempt will be
+for nothing. Notice that the file extension <i>.tc</i> will be added
+automatically to the given file name. No need to type it.
+</div>
+
+<h3>Password Input</h3>
+<div>
+In the next dialog you are asked for a password. This is the key protecting
+your data.<br/><br/>
+Simple passwords are easy to crack, nothing new here. Although the container
+format offers some additional protection due to the way passwords are processed,
+in a time-consuming fashion, it is highly recommended to give them enough length
+and use different kinds of characters. TruPax does not warn about "weak
+passwords", since it quite difficult to classify them properly. Of course
+two digit passwords are weak, yet "aaaaaaaaaaaaaaaaaaaa" is hardly any safer
+although it is impressively twenty characters long. And
+"Train Station Traffic Control!" is thirty characters long and even has
+non-alphanumerical characters, but is massively reduced in security because of
+dictionary characteristics and common formatting. In general: the more random
+and longer the better. The rest is statistics.
+<br/><br/>
+To be fully compatible to VeraCrypt or TrueCrypt it is not possible to use
+empty passwords. You also have to confirm them and you can view them, but be
+careful since somebody or something might peek over your shoulders.
+<br/><br/>
+To avoid input mistakes passwords are getting colored. The colors themselves are
+derived from a secure checksum of what you are typing, thus don't reveal
+anything about the actual input itself. But they offer you to see if the input
+does not match, since the colors will be very likely significantly different.
+Also if your password caused a dark green color for instance it will again
+be dark green the next time you have to deal with password provision. But if
+you mistype it you can easily spot it because it might have turned yellow or
+cobalt blue. This avoids the common and dramatic problem with passwords being
+mistyped twice, since humans sometimes stick to a rhythm, even if the beat
+is wrong.
+<br/><br/>
+When you're done with your password click on the button <b>Proceed...</b>.
+</div>
+
+<h3>Container Generation</h3>
+<div>
+The container is now ready. Depending on the number and size of files this can
+happen quite fast or take hours. You can abort the process at any point in time,
+causing the container to be removed. If you have selected the option
+<b>Wipe Afterwards</b> the files in such a case won't be deleted of course. If
+you have selected the option and the container got created successfully then,
+in a second pass, files and the associated folders will get wiped.
+<br/><br/>
+The produced container can now be opened with either VeraCrypt or TrueCrypt and
+the provided password. Depending on the operating system ()and its support for
+the UDF file system) the drive or mount respectively will be either read-only or
+fully readable and writable, meaning you can delete files or create new ones.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Wiping of Files</h2>
+
+<div>
+You can also simply wipe the selected files and folders. Just click on the menu
+<b>Wipe...</b> and confirm.
+<br/><br/>
+Please make sure that the selection is right, since there is usually no way to
+restore wiped files. Every specimen will be overwritten with zeros and its
+file name erased through multiple passes. Because of that wiping of larger
+amounts of data can take a long time.
+<br/><br/>
+You can of course abort the process and be left with what hasn't been touched so
+far, but already wiped files will be gone for good.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Container Extraction</h2>
+
+<div>
+TruPax can extract its own containers in a simple operation. For that open the
+container through the menu <b>Extract...</b> and provide a target path. After
+entering the password (no confirmation necessary) all of the files and folders
+will be extracted to the same structure as stored in the container.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Container Invalidation</h2>
+
+<div>
+Using this feature you can destroy even the largest containers very quickly.
+This works for any container, not just for ones creates with TruPax. This gets
+accomplished by erasing the so called header of the container with zeros, same
+for a potential reserve header at the end of the container file. Through that the
+master key gets erased. Since this key is protected by the password latter
+won't be able to recover anything. The data will be lost and is virtually
+destroyed, unless in the far future current encryption algorithms like AES will
+be sufficiently weakened.
+<br/><br/>
+Select the container file and confirm. The container will be processed in a
+couple of seconds and optionally can also be deleted.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Command Line</h2>
+
+<h3>Usage</h3>
+<div>
+TruPax can also be fully used on the command line. For Windows that's the command
+prompt, under Linux the terminal or bash shell respectively. For Linux
+the script <i>install.sh</i> (see above) automatically installs command line
+availability on the whole system. Under Window it is recommended to add the
+path to where the file <i>trupax.cmd</i> is located to the environment variable
+<i>PATH</i>. Which probably shows that command line is usage is more for the
+expert. Though once properly installed TruPax can be used like any other command
+line program and for instance be used by scripts.
+<br/><br/>
+The actual usage is the same for every operating system. With a simple call to
+it TruPax shows you help about syntax and all its options:
+<br/><br/>
+<code>
+[test@foo ~]$ trupax<br/>
+(MISSING_CMDLN_ARG): Not enough parameters. (no details available)<br/>
+<br/>
+Options:<br/>
+-v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Verbose mode, show all operations in progress.<br/>
+-r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Include all sub-directories when searching for files.<br/>
+--free-space=size&nbsp;&nbsp;&nbsp;&nbsp;Add given amount of free space to the volume. Size is in<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ bytes, suffixes are k(i), m(i) and g(i). For instance set<br/>
+...
+</code>
+<br/><br/>
+Creating a container on the command line is similar to how it's done in the GUI.
+The only difference is that files and folder selections are passed in the call.
+After password input and confirmation the container gets created. Extraction
+with the option <i>--extract</i> and optional wiping of the files through
+<i>--wipe</i> or just wiping of a selection via <i>--wipe-only</i> are also
+possible.
+<br/><br/>
+By using the parameter <i>--password</i> you can also avoid password input to
+happen while the program is running, so TruPax can be used in fully automated
+scenarios (e.g. for archiving purposes).
+<br/><br/>
+If a file or folder starts with a dash you can replace it (the dash) with a
+triple dash, so it doesn't get interpreted as an option. For instance a file
+called <i>-index</i> would be declared as <i>---index</i>.
+<br/><br/>
+TruPax can be interrupted through the common abort key combination of the
+operating system it is running on (in most cases that is <i>Ctrl+C</i>).
+</div>
+
+<h3>Configuration</h3>
+<div>
+The command line version uses a separate configuration file carrying the name
+<i>trupaxcmd.properties</i> or <i>trupaxcmdrc.properties</i> respectively. You
+can modify it to set custom default settings. Check out the example
+<i>trupaxcmd_example_config.txt</i> in the ZIP file.
+</div>
+
+<h3>Exit Codes</h3>
+<div>
+TruPax defines certain exit codes for the command line, so calling instances can
+check them. For instance to verify if an operation was successful or (if not)
+what went wrong. If an error occurred the name of it gets shown, yet the actual
+exit code value is one of the following numbers:
+
+<br/>
+<br/>0 - The operation was successful (or as expected).
+<br/>1 - An internal or unexpected error happened.
+<br/>2 - Program error, e.g. if there is no text console available.
+<br/>3 - A self test for an algorithm failed. TruPax should be reinstalled in such a case.
+<br/>4 - The user cancelled the operation.
+<br/>5 - One or more command line parameter is invalid. 
+<br/>6 - One or more command line parameters are missing.
+<br/>7 - Files or folders couldn't be registered completely.
+<br/>8 - The configuration file couldn't be loaded. 
+<br/>10 - Container preparation failed, e.g. if the some file paths are too long.
+<br/>11 - Container initialization failed, it might already exist or be write protected.
+<br/>13 - An error occurred during container creation.
+<br/>14 - The selection of files contains name collisions due to path or file overlaps.
+<br/>15 - The container file exists already and wasn't overwritten or even touched.
+<br/>16 - An unknown entry was found in the configuration file.
+<br/>17 - An invalid entry was found in the configuration file.
+<br/>20 - The container couldn't be opened for extraction. 
+<br/>21 - The container couldn't be decrypted.
+<br/>22 - An error occurred during extraction.
+<br/>23 - The container file couldn't be invalidated.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Worth To Mention</h2>
+
+<div>
+<ul>
+<li>The maximum size of a container is 1,099,511,627,264 bytes (roughly one TB).</li>
+<li>The maximum allowed length the name of a file or folder is 255 (ASCII), or 127 if Unicode is needed.</li>
+<li>The maximum length of a path is 1023.</li>
+<li>The maximum size of a file in a container is 45,097,135,104 bytes (around 45GB).</li>
+<li>For very small UDF containers (less than 100kB) mounting fails under Linux.</li>
+<li>The encryption algorithm is AES-256.</li>
+<li>The hash algorithm is SHA-512.</li>
+<li>Container files are created with a second (backup) header.</li>
+<li>Containers created with TruPax are compatible with TrueCrypt 6+ or VeraCrypt 1.14+.</li>
+<li>TruPax is verified with plenty of automated tests before publication.</li>
+</ul>
+</div>
+
+<div class="ln">&nbsp;</div>
+<div class="cr">
+<i><a style="text-decoration:none" href="http://www.coderslagoon.com">Copyright 2010-2015 CODERSLAGOON</a></i>
+</div>
+
+</body>
+</html>

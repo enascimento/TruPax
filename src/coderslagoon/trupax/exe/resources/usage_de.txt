@@ -1,0 +1,36 @@
+
+Aufruf: trupax {Optionen} [Container] [Dateien|Ordner] {[Dateien|Ordner] ...}
+
+Optionen:
+-v                   Meldungen und Fortschrittsanzeige aktivieren.
+-r                   Beim Durchsuchen alle Unterverzeichnisse miteinschliessen.
+--free-space=Größe   Freien Speicherplatz zum Container hinzufügen. Größen in
+                     Bytes, Kürzel wie k(i), m(i) und g(i) werden unterstützt.
+                     Z.B. "200m" für 200,000,000 oder "100ki" für 102,400 Bytes.
+--store-full-path    Komplette Pfadnamen speichern, ausgenommen vorgestellte
+                     Dinge wie Laufwerksnamen oder Netwerkfreigaben.
+--write-protect      Den Container als schreibgeschützt markieren.
+--label=name         Name für die Container-Datei, bis zu 15 Zeichen lang.
+--skip-empty-dirs    Vollständig leere Ordner nicht hinzufügen.
+--allow-merge        Zusammenfügen der Auswahl bei Namenskonflikten aufgrund
+                     überlappender Dateien|Ordner, von links nach rechts.
+--case-merge         Groß-/Kleinschreibung beim Zusammenfügen von Datei- und
+                     Ordnernamen zulassen.
+--overwrite          Vorhandene Container-Datei überschreiben. Bitte Vorsicht!
+--keep-broken-volume Die (möglicherweise unvollständige) Container-Datei nach
+                     Auftreten eines Fehlers behalten.
+--password=Passwort  Zu verwendendes Passwort, anstatt manueller Eingabe.
+--wipe               Die originalen Dateien und Ordner nach der Erstellung der
+                     Container-Datei vernichten.
+--wipe-only          Nur vernichten, keine Erstellung eines Containers.
+--extract            Die gegebene Container-Datei in den Zielordner extrahieren.
+--invalidate         Die gegebene Container-Datei ungültig machen. Vorsicht!
+--for-veracrypt      Container kompatibel zu VeraCrypt erzeugen.
+
+Beispiele: trupax -v -r --label=meinedaten test.tc dokumente\*.txt diary.txt
+           trupax -r --password=abc123 sicherungskopie.tc /home/alina/
+           trupax -v --free-space=2g fotos.tc "Meine Bilder\2010"
+           trupax -v --extract C:\Users\kevin\privat\reportagen.tc D:\temp
+           trupax -v --invalidate /home/justin/Bilder/party.tc
+           trupax -r --wipe-only *.tmp index.dat
+           trupax -v -r --for-veracrypt "Alle Dokumente.hc" ~/Dokumente

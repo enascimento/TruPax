@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>TruPax Dokumentation</title>
+  <style>
+    a:active  { color:black; }
+    a:link    { color:black; }
+    a:visited { color:black; }
+    body { font-family:Verdana,Geneva,sans-serif; color:black; background-color:white; }
+  </style>
+</head>
+
+<body>
+
+<h1>TruPax Dokumentation</h1>
+
+<div class="ln">&nbsp;</div>
+<h2>Konfiguration</h2>
+
+<div>
+TruPax speichert seine Einstellungen in einer Datei mit dem Namen
+<i>trupax.properties</i> unter Windows, ansonsten unter <i>.trupaxrc</i> ab,
+vorzugsweise im Installationsverzeichnis. Falls dies nicht möglich sein sollte
+wird die Datei im Verzeichnis des Benutzers angelegt - unter Windows ist dies
+meistens <i>C:\Users\{Benutzername}</i> . Diese Datei wird vom Programm
+verwaltet und sollte daher nicht von Hand verändert werden.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Erzeugen eines Container</h2>
+
+<h3>Datei Auswahl</h3>
+<div>
+Mit den Schaltflächen <b>Dateien/Ordner hinzufügen...</b> (oder den
+gleichnamigen Menüeinträgen) können Sie beliebige
+Dateien zu der Liste hinzufügen. Einzelne Dateien, sowie den Inhalt ganzer
+Ordner, wahlweise durch die Option <b>Unterordner miteinschließen</b> sogar
+komplette Ordnerstrukturen. Mit der Option <b>Vollständige Pfade speichern</b>
+bestimmen Sie ob der komplette Pfad der Dateien und Ordner übernommen werden
+soll, oder nur vom Punkt der Auswahl an - in den meisten Fällen ist letzteres
+die optimale Wahl.
+<br/><br/>
+Bei manchen oder mehrfachen Auswahlen kann es zu Konflikten kommen, was dann
+passiert wenn Dateien oder Ordner mit demselben Namen auftreten und an der
+selben Stelle im zu erzeugenden Container stehen würden. Beim Zusammenfügen
+hilft hier das Auswahlmenü: <b>Kein Zusammenfügen</b> bricht die Registrierung
+bei jedlichem Konflikt ab. Mit <b>Kein Zusammenfügen</b> ersetzt die neuere
+Auswahl die Ordner und Dateien der vorherigen mit dem sie in Konflikt stehen.
+Hierbei wird bei Groß- und Kleinschreibung kein Unterschied gemacht, d.h.
+die Datei "bild.jpg" wird die Datei "Bild.JPG" z.B. ersetzen. Sollte dies nicht
+gewünscht sein so können Sie mit <b>Kein Zusammenfügen Groß/Klein</b> solche
+Konflikte zulassen, sodass im Container dann "Bild.JPG" und "bild.jpg"
+gespeichert werden. Dies kann unter Windows und OSX allerdings zu Problemen beim
+späteren Zugriff führen, da dort Dateinamen bei Kopier- und anderen Vorgängen
+nicht in paralleler Groß- und Kleinschreibung unterstützt werden. Unter Linux
+gibt es hier jedoch keine Probleme.
+<br/><br/>
+Durch Ziehen und Ablegen auf die Benutzeroberfläche von TruPax können ebenfalls
+Ordner und Dateien hinzugefügt werden. Handelt es sich dabi allerdings um eine
+einzelne Datei mit der Endung <i>.tc</i>, so wird eine Auswahl angezeigt. Hier dann
+können Sie entscheiden ob Sie den Container entweder extrahieren, ungültig
+machen oder schlicht und einfach der Auswahl hinzufügen wollen.
+<br/><br/>
+Je nach Anzahl der zu registrierenden Dateien kann dieser Vorgang etwas
+länger dauern, ein Dialog ermöglicht es Ihnen aber die Suche abzubrechen.
+In der Liste sehen Sie dann die Dateien in der Form wie sie in der zu
+erzeugenden Container-Datei erscheinen werden.
+<br/><br/>
+Mit der Schaltfläche <b>Liste leeren</b> können Sie selbige komplett löschen. 
+In der Anzeige unter der Liste werden Sie zusätzlich über die Größe der
+Container-Datei informiert, sodass Sie vorab bis auf das Byte genau wissen wie
+groß der Container am Ende sein wird. 
+<br/><br/>
+Um Dateien in der Liste zu öffnen genügt ein Doppelklick, um die damit
+verknüpfte Anwendung (falls verfügbar) zu starten.
+<br/><br/>
+Sie können zusätzlich durch die Option <b>Danach vernichten</b> eine 
+Überschreibung und Löschung der Dateien und Order nach erfolgreichen Erzeugung
+der Container-Datei bewirken. Vergewissern Sie sich jedoch dass der Container
+an einem sicheren Ort erzeugt wird - im Zweifelsfall können Sie die Auswahl
+noch nachträglich in einem separaten Schritt vernichten.
+</div>
+
+<h3>Container Eigenschaften</h3>
+<div>
+Mit <b>Freier Speicherplatz</b> können Sie zusätzlichen Speicherplatz zum Container
+hinzufügen. Nützlich z.B. wenn der Container zum weiteren Lesen und Schreiben
+verwendet werden soll. Die Größe des freien Speicherplatzes geben Sie in Bytes
+an, es sind jedoch auch die Kurzformen wie z.B. "25m" für 25 Megabytes
+(25.000.000) möglich. Andere gültige Kürzel sind k (kilo) und g (giga). Leute
+die unter einem Kilobyte 1024 Bytes verstehen können auch ki/mi/gi verwenden.
+<br/><br/>
+Container können durch <b>Kennzeichnung</b> mit bis zu fünfzehn beliebigen
+Zeichen beschriftet werden. Je nach Betriebssystem wird diese Information dann
+später beim Aktivieren des Container in VeraCrypt oder TrueCrypt sichtbar. 
+<br/><br/>
+Mittels der Option <b>Schreibgeschützt</b> wird das Dateisystem eines Container
+als nur-lesend markiert, d.h. es sind keinerlei Änderungen mehr möglich - ähnlich
+einer CD oder DVD. Allerdings wird dies zur Zeit nur unter den Betriebssystemen
+Windows und OSX unterstützt.
+<br/><br/>
+Wenn sie Container mit dem erweiterten Format der TrueCrypt-Alternative
+VeraCrypt erzeugen wollen, dann setzen Sie die Option <b>Für VeraCrypt</b>.
+Während TrueCrypt-Container von VeraCrypt geöffnet werden können, so ist dies
+umgekehrt nicht der Fall. Durch eine verbesserte Schlüsselaufbereitung dauert
+zudem der Beginn beim Erzeugen und Extrahieren von VeraCrypt-Containern etwas
+länger.
+</div>
+
+<h3>Auswahl des Containers</h3>
+<div>
+Klicken Sie auf die Schaltfläche <b>Container-Datei erzeugen...</b>. Die erste
+zu treffende Auswahl ist der Pfad und Name der Container-Datei, ähnlich einem
+gewöhnlichen "Speichern unter..." in anderen Programmen. Überprüfen Sie
+gegebenenfalls dass genügend Speicherplatz am Zielort verfügbar ist, ansonsten
+kann es sein dass selbiger nach langer Zeit zuneige geht und der ganze Versuch
+umsonst war. Beachten Sie dass die Dateierweiterung <i>.tc</i> automatisch an
+den Dateinamen angehängt wird.
+</div>
+
+<h3>Passwort-Eingabe</h3>
+<div>
+Im nächsten Dialog werden Sie aufgefordert ein Passwort einzugeben. Dies ist der
+Schlüssel der Ihre Daten schützt.<br/><br/>
+Einfache Passwörter sind bekannterweise
+leicht zu knacken. Obwohl das Container-Format durch eine aufwendige
+Aufbereitung des Schlüssels einen gewissen Schutz bietet ist es doch
+empfehlenswert ein Passwort mit ausreichender Länge und mit verschiedenen Arten
+von Zeichen zu verwenden. TruPax warnt nicht bei der Eingabe von "schwachen
+Passwörtern", da es recht schwer ist solche zu klassifizieren. Sicherlich sind
+zweistellige Passwörter schwach, "aaaaaaaaaaaaaaaaaaaa" ist jedoch kaum
+sicherer obwohl zwanzig Stellen lang. Und "Hauptbahnhofsdurchgangsverkehr" hat
+sogar Groß- und Kleinbuchstaben bei einer Länge von dreißig Zeichen, kann aber
+mit etwas Geschick aus einem Wörterbuch abgeleitet werden. Im allgemeinen gilt:
+je zufälliger und länger desto besser. Der Rest ist Statistik.
+<br/><br/>
+Es ist aus Kompatibilitätsgründen mit TruCrypt nicht möglich leere Passwörter zu
+verwenden. Sie müssen das Passwort zudem bestätigen, können es sich zudem
+anzeigen lassen. Vorsicht ist hierbei geboten - stellen Sie sicher dass
+niemand (oder auch nichts) über Ihre Schulter schaut.
+<br/><br/>Um Fehleingaben zu vermeiden werden Passwörter
+eingefärbt. Die Farbe leitet sich aus einer sicheren Prüfsumme ab, sagt also
+nichts über die Eingabe aus. Erlaubt es Ihnen aber zu erkennen wenn Eingaben
+nicht übereinstimmen, bzw. um Passwörter wiederzuerkennen, da sich die Farbe nicht
+ändert. Wenn die Farbe bei der letzten Passworteingabe dunkelgrün war, dann wird
+sie es beim nächsten Mal wieder so sein. Sollten Sie allerdings dann blau sehen,
+so wissen Sie dass etwas nicht stimmt und Sie sich vertippt haben. Dies
+verhindert u.a. desaströse Fehleingaben wo das Passwort und dessen Bestätigung
+falsch eingegeben wurde. Was bei schnellem und wiederholten Tippen durchaus
+einmal passieren kann.
+<br/><br/>
+Wenn Sie mit Ihrem Passwort zufrieden sind klicken Sie auf die Schaltfläche
+<b>Beginnen...</b>.
+</div>
+
+<h3>Container-Erzeugung</h3>
+<div>
+Die Container-Datei wird nun erstellt. Je nach Anzahl und Größe der Dateien kann
+dies sehr schnell vonstatten gehen. Oder aber auch mehrere Stunden in Anspruch
+nehmen. Sie können den Vorgang jederzeit abbrechen. In diesem Falle wird die
+Container-Datei dann gelöscht. Sollten Sie zu Beginn die <b>Danach vernichten</b>
+Option ausgewählt haben, so werden die Dateien selbstverständlich nicht
+angetastet. Bei erfolgreicher Erzeugung aber besteht der zweite Durchgang dann
+jedoch in der Vernichtung der Dateien und eventuell zugehöriger Ordner.
+<br/><br/>
+Der fertige Container kann dann jeweils mit VeraCrypt oder TrueCrypt und dem
+zugehörigen Passwort geöffnet werden. Abhängig vom Betriebssystem und der
+Unterstützung des verwendeten Dateisystems UDF ist das Laufwerk dann nur lesbar
+oder les- und schreibbar, d.h. Dateien können gelöscht und neue Dateien
+hinzugefügt werden.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Vernichten von Dateien</h2>
+
+<div>
+Sie können die ausgewählten Dateien und Ordner auch separat vernichten. Wählen
+Sie dazu einfach den Menüeintrag <b>Vernichten...</b> aus und bestätigen Sie
+dann die Sicherheitsabfrage.
+<br/><br/>
+Vergewissern Sie sich jedoch vorher bitte dass die
+Auswahl wirklich stimmt, da es so gut wie keine keine Möglichkeit mehr
+gibt vernichtete Dateien wiederherzustellen. Jede Datei wird mit Nullen
+überschrieben und der Dateinamen danach durch mehrfaches Umbenennen gelöscht.
+Hierdurch kann auch der Vernichtungsvorgang bei größeren Mengen recht lange
+dauern.
+<br/><br/>
+In der Fortschrittsanzeige können Sie jedoch jederzeit abbrechen, sind
+aber dann mit dem Überbleibsel konfrontiert, da bereits vernichtete Dateien
+nicht wiederherstellbar sind.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Extrahierung eines Containers</h2>
+
+<div>
+TruPax kann seiner erzeugten Container mit einer einfachen Operation
+extrahieren. Hierzu öffnen Sie eine Container-Datei durch das Menü
+<b>Extrahieren...</b> und geben ein Zielverzeichnis an. Nach der Eingabe des
+Passwortes (keine Bestätigung nötig) werden dann alle Dateien und Ordner 1:1
+extrahiert.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Container ungültig machen</h2>
+
+<div>
+Mit diesem Feature können Sie sehr schnell die selbst größten Container zerstören.
+Dies funktioniert für jede Container, nicht nur für durch TruPax
+erzeugte. Hierbei werden der sogenannte "Header" des Containers mit Nullen
+überschrieben, sowohl als auch der Reserve-Header am Ende der Datei. Dabei wird
+der Hauptschlüssel vernichtet. Da der Hauptschlüssel vom eigentlichen Passwort
+geschützt wird nutzt letzteres dann nichts mehr. Die Daten sind verloren und
+prinzipiell vernichtet, es sei denn dass in ferner Zukunft Algorithmen wie AES
+geknackt werden können.
+<br/><br/>
+Wählen Sie einfach die gewünschte Container-Datei aus und bestätigen Sie die
+Sicherheitsabfrage. Der Container wird dann in wenigen Sekunden bearbeitet und
+kann auch optional gleich gelöscht werden. 
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Kommandozeile</h2>
+
+<h3>Benutzung</h3>
+<div>
+TruPax kann auch vollständig mit der Kommandozeile bedient werden. D.h. unter
+Windows mit der Eingabeaufforderung oder unter Linux mit einem Terminal bzw.
+der Bash-Shell. Unter Linux wird die Kommandozeile via dem <i>install.sh</i>
+Skript (siehe oben)  automatisch eingerichtet und steht dann im Terminal global
+zur Verfügung. Unter Windows empfiehlt es sich den Pfad zu der ausführbaren
+Datei <i>trupax.cmd</i> festzulegen, mit der Umgebungsvariable <i>PATH</i>.
+Hiermit ist wahrscheinlich klar dass die Bedienung per Kommandozeile eher etwas
+versierte Benutzerinnen ist. Einmal installiert kann TruPax jedoch wie jedes
+andere Kommandozeilenprogramm verwendet und z.B. von Skriptsprachen aufgerufen
+werden.
+<br/><br/>
+Die eigentliche Bedienung ist auf jedem Betriebssystem gleich. Mit einem
+einfachen Aufruf zeigt TruPax eine kurze Hilfe an:
+<br/><br/>
+<code>
+[test@foo ~]$ trupax<br/>
+Fehler 6 (MISSING_CMDLN_ARG): Anzahl der Parameter zu klein. (keine weiteren Informationen verfügbar)
+<br/>
+<br/>
+Aufruf: trupax {Optionen} [Container] [Dateien|Ordner] {[Dateien|Ordner] ...}<br/>
+<br/>
+Optionen:<br/>
+-v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Meldungen und Fortschrittsanzeige aktivieren.<br/>
+-r&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Beim Durchsuchen alle Unterverzeichnisse miteinschließen.<br/>
+--free-space=größe&nbsp;&nbsp;&nbsp;Freien Speicherplatz zum Container hinzufügen. Größen in<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Bytes, Kürzel wie k(i), m(i) und g(i) werden unterstützt.<br/>
+...
+</code>
+<br/><br/>
+Der Verlauf einer Container-Erstellung auf der Kommandozeile ist dem der
+grafischen Benutzeroberfläche sehr ähnlich. Nur werden die zu registrierenden
+Dateien und Ordner mit dem Aufruf übergeben. Nach Eingabe und Bestätigung des
+Passworts wird dann die Container-Datei erzeugt. Extrahierung mit der Option
+<i>--extract</i>, wahlweise Vernichtung der Dateien nach der Erstellung
+mittels <i>--wipe</i> oder alleinige Vernichtung durch <i>--wipe-only</i>
+sind ebenfalls möglich.
+<br/><br/>
+Durch die Verwendung des Parameters <i>--password</i> kann selbst die Eingabe
+des Passwort vermieden und damit TruPax zur Automatisierung bestimmter Aufgaben
+(z.B. Archivierung) eingesetzt werden. 
+<br/><br/>
+Sollte ein Datei- oder Ordnername mit einem Bindestrich beginnen, so kann dieser
+durch einen dreifachen Bindestrich deklariert werden, damit der Parameter nicht
+versehentlich als Option interpretiert wird. Zum Beispiel würde eine Datei
+namens <i>-index-</i> als <i>---index-</i> übergeben.  
+<br/><br/>
+TruPax kann jederzeit durch die für das Betriebssystem übliche Tastenkombination
+abgebrochen werden (in den meisten Fällen <i>Strg+C</i>).
+</div>
+
+<h3>Konfiguration</h3>
+<div>
+Bitte beachten Sie dass für die Kommandzeile eine andere Konfigurationsdatei
+names <i>trupaxcmd.properties</i> bzw. <i>.trupaxcmdrc</i> verwendet wird. Diese
+können Sie problemlos modifizieren um eigene Einstellungen festzulegen. Ein
+Beispiel ist in der ZIP-Datei unter <i>trupaxcmd_example_config.txt</i> zu
+finden.</div>
+
+<h3>Rückgabewerte</h3>
+<div>
+
+TruPax definiert bestimmte Rückgabewerte für die Kommandozeile, welche von
+aufrufenden Instanzen dann überprüft werden können. Zum Beispiel um festzustellen
+ob eine Operation erfolgreich war oder (falls nicht) warum diese fehlschlug.
+Beim Auftreten eines solchen Fehlers wird zudem ein Namen des Fehlers erwähnt,
+der eigentlich Wert ist allerdings eine der folgenden Nummern:
+<br/>
+<br/>0 - Der Programmablauf war fehlerfrei (oder wie erwartet).
+<br/>1 - Ein interner/unerwarteter Fehler trat auf.
+<br/>2 - Programmfehler. Möglich z.B. bei fehlender Textkonsole.
+<br/>3 - Ein Selbsttest für einen Algorithmus schlug fehl. TruPax sollte neu installiert werden.
+<br/>4 - Der Benutzer unterbrach die Operation.
+<br/>5 - Ein Kommandzeilenparameter ist ungültig. 
+<br/>6 - Ein Kommandozeilenparameter fehlt.
+<br/>7 - Dateien oder Ordner konnten nicht vollständig registriert werden.
+<br/>8 - Die Konfigurationsdatei konnte nicht geladen werden. 
+<br/>10 - Die Vorbereitung der Container-Datei schlug fehl (z.B. zu lange Pfade).
+<br/>11 - Die Container-Datei könnte nicht initiiert werden (schon vorhanden oder schreibgeschützt).
+<br/>13 - Ein Fehler trat beim Erstellen des Containers auf.
+<br/>14 - Die Auswahl der Dateien und Ordner überlappt und ist deshalb zweideutig.
+<br/>15 - Die Container-Datei existiert bereits und wurde nicht überschrieben.
+<br/>16 - Ein unbekannter Eintrag wurde in der Konfigurationsdatei gefunden.
+<br/>17 - Ein ungültiger Eintrag wurde in der Konfigurationsdatei gefunden.
+<br/>20 - Die Container-Datei könnte nicht zum Extrahieren geöffnet werden. 
+<br/>21 - Die Container-Datei könnte nicht entschlüsselt werden.
+<br/>22 - Ein Fehler trat während der Extrahierung auf.
+<br/>23 - Die Container-Datei konnte nicht ungültig gemacht werden.
+</div>
+
+<div class="ln">&nbsp;</div>
+<h2>Erwähnenswertes</h2>
+
+<div>
+<ul>
+<li>Die Maximale Größe eines Containers ist 1.099.511.627.264 Bytes (grob ein Terabyte).</li>
+<li>Die maximale Länge eines Names einer Datei oder Ordners ist 255 (ASCII), oder 127 falls Unicode benötigt wird.</li>
+<li>Die maximale Länge eines Pfades beträgt 1023.</li>
+<li>Die maximale Größe einer Datei in einem Container ist 45.097.135.104 Bytes (ca. 45GB).</li>
+<li>Bei sehr kleinen UDF-Containern (weniger als 100kB) kann das Öffnen unter Linux manchmal fehlschlagen.</li>
+<li>Der Verschlüsselungsalgorithmus ist AES-256.</li>
+<li>Die verwendete Hash-Funktion ist SHA-512.</li>
+<li>Die Container-Dateien werden mit einem zweiten (Backup) Header erzeugt.</li>
+<li>TruPax erzeugte Container sind kompatibel mit TrueCrypt 6+ und VeraCrypt 1.14+.</li>
+<li>TruPax wird mit vielen automatischen Tests vor der Veröffentlichung überprüft.</li>
+</ul>
+</div>
+
+<div class="ln">&nbsp;</div>
+<div class="cr">
+<i><a style="text-decoration:none" href="https://www.github.com/coderslagoon/">Copyright 2010-2015 CODERSLAGOON</a></i>
+</div>
+
+</body>
+</html>
