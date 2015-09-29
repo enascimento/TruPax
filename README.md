@@ -48,13 +48,13 @@ Testing
 Verification for TruPax and CLBaseLib is implemented as JUnit tests, which are
 partially functional. Meaning they do interact with the local file system, and
 thus run in an authentic manner. All testing material though is created in the
-temporary directory, no changes to your machine will be made expect in there.
+temporary directory, no changes to your machine will be made except in there.
 You can run these test cases by simply clicking on the test source folders and
 run them as JUnit tests. The whole set of tests should then execute, a full test
 run usually takes a few minutes, hence some patience is required.
 
 The test cases can also leverage a third party UDF validation tool, called
-*udf_test*, which can be obtained by Phillips. You need to download this tool
+udf_test, which can be obtained by Phillips. You need to download this tool
 yourself, due to licensing it cannot be included in the code base. The udf_test
 software seems to keep moving around, so it might be tricky to find it. Once
 you acquired it point to the *udf_test* executable via the environment variable
@@ -76,7 +76,7 @@ nutshell: (format) strings are retrieved in the code via the NLS classes, or
 their public fields respectively, and in case of a language switch these strings
 are re-loaded from the associated resources files. Missing resources will cause
 an exception at runtime, so please always do test new textual things in all
-available languages - also watch our for correct format parameter provisioning.
+available languages - also watch out for correct format parameter provisioning.
 
 SDK
 ---
